@@ -5,10 +5,9 @@ import mlflow.sklearn
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 
-
-mlflow.set_tracking_uri("file:./mlruns")
 mlflow.set_experiment("Heart_Disease_Basic")
 mlflow.sklearn.autolog()
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 def load_split_data(data_dir):
@@ -19,7 +18,6 @@ def load_split_data(data_dir):
     return X_train, X_test, y_train, y_test
 
 def train_basic(X_train, X_test, y_train, y_test):
-    with mlflow.start_run(run_name="RF_Basic_Model"):
         model = RandomForestClassifier(
             n_estimators=100,
             random_state=42
@@ -42,3 +40,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
