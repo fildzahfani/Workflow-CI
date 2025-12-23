@@ -13,13 +13,15 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Set up Python
-      uses: actions/setup-python@v5
+    - name: Setup Miniconda
+      uses: conda-incubator/setup-miniconda@v3
       with:
-        python-version: "3.10"
+        auto-update-conda: true
+        activate-environment: ""
 
     - name: Install MLflow
-      run: pip install mlflow
+      run: |
+        pip install mlflow
 
     - name: Run MLflow Project
       run: |
