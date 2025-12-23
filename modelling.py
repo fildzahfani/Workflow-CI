@@ -34,11 +34,12 @@ def train_basic(X_train, X_test, y_train, y_test):
         mlflow.sklearn.save_model(model, "model")
 
 def main():
-    data_dir = "heart_preprocessing"
+    data_dir = "./heart_preprocessing"
     X_train, X_test, y_train, y_test = load_split_data(data_dir)
     train_basic(X_train, X_test, y_train, y_test)
 
 if __name__ == "__main__":
     main()
+
 
 
