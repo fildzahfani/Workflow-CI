@@ -29,6 +29,9 @@ def train_basic(X_train, X_test, y_train, y_test):
 
         acc = accuracy_score(y_test, y_pred)
         print("Accuracy (Basic Model):", acc)
+        
+        os.makedirs("model", exist_ok=True)
+        mlflow.sklearn.save_model(model, "model")
 
 def main():
     data_dir = "preprocessing/heart_preprocessing"
@@ -37,3 +40,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
