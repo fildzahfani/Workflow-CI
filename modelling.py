@@ -34,8 +34,7 @@ def train_basic(X_train, X_test, y_train, y_test):
         mlflow.sklearn.save_model(model, "model")
 
 def main():
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    data_dir = os.path.join(BASE_DIR, "heart_preprocessing")
+    data_dir = "Workflow-CI/heart_preprocessing"
 
     X_train, X_test, y_train, y_test = load_split_data(data_dir)
     train_basic(X_train, X_test, y_train, y_test)
@@ -43,6 +42,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
